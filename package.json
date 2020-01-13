@@ -1,0 +1,16 @@
+{
+  "name": "to_do_app",
+  "version": "1.0.0",
+  "description": " To Do List Application .BACKEND TECHNOLOGY STACK USED: Node.js + Express + MongoDB ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vanshaj Kapoor",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
