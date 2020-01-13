@@ -1,0 +1,163 @@
+body{
+    margin:0;
+    
+}
+
+#app-container{
+    display:flex;
+    width:55vw;
+    border:1px solid black;
+    margin:auto;
+    flex-direction: column;
+}
+
+#app-container>div{
+    display:flex;
+    border:1px solid black;
+}
+
+#app-heading{
+    justify-content: center;
+}
+#app-heading i{
+    margin: 5px;   
+}
+#app-heading h1{
+    font-family: sans-serif;
+    color: #001858;
+
+}
+
+form{
+    width:100%;
+}
+
+#desc-input{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    border:1px solid black;
+    height: 80px;
+}
+#desc-input div{
+    width:100%;
+    /* border:1px solid black; */
+}
+
+#desc-input textarea{
+    width: 98%;
+    border:none;
+    background-color: #f3d2c1;
+    border-radius: 5px;
+    outline: none;
+    font-family: sans-serif;
+    color: #001858;
+    font-weight: 600;
+    padding-top:10px;
+    margin-top:3px
+}
+
+#date-cat-input{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    border:1px solid black;
+    /* height: 100px; */
+    flex-wrap:wrap;
+}
+#date-cat-input div{
+    
+    width:49.5%;
+    height:80px;
+    border:1px solid black;
+
+}
+
+#date-cat-input select,input{
+    width:98%;
+    height:50%;
+    padding-top:5px;
+    outline: none;
+    background-color: #f3d2c1;
+    border-radius: 5px;
+    border: none;
+    font-family: sans-serif;
+    color: #001858;
+    margin-top: 3px;
+    
+   
+    font-weight: 600;
+}
+
+
+
+#btn-wrapper{
+    display:flex;
+    height:100px;
+    border:1px solid black;
+    flex-direction: row;
+    width:100%;
+}
+
+#add-btn-wrapper{
+    width:49.6%;
+    border:1px solid black;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;    
+
+    height: 100px;
+}
+
+#del-btn-wrapper{
+    width:49.55%;
+    border:1px solid black;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100px;
+
+}
+
+.btn{
+    background:none;
+    border:2px solid #f582ae;
+    font-family: sans-serif;
+    border-radius: 3px;
+    padding:12px 20px;
+    cursor:pointer;
+    color: #001858;
+    font-weight:550;
+    background-color: #f582ae;;
+    height:60px;
+    width: 160px;
+    text-transform: uppercase;
+    margin:5px;
+    cursor:pointer;
+    transition:color 0.3s linear;
+
+}
+
+.btn:hover{
+    color:#fff;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #001858;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #001858;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #001858;
+  }
+
+.ui-label{
+    font-family: sans-serif;
+    color:#001858;
+    font-size: 1rem;
+    font-weight: 650;
+}

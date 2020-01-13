@@ -1,30 +1,66 @@
 <html>
     <head>
         <title><%= title %></title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" 
+        integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" 
+        crossorigin="anonymous">
+
+        <link rel="stylesheet" href="/css/home.css">
     </head>
 
     <body>
 
         <div id="app-container">
-        
-            <form action="/create-task" method="POST">
-                <label for="desc" >Enter Description: </label><br>
-                <textarea name="desc" cols="80" rows="5" placeholder="Enter Your Task" id="desc" required="true"></textarea><br>
-                <label for="category">Enter Category </label><br>
-                <select name="category" id="category" required="true">
-                    <option value="Work" selected>Work</option>
-                    <option value="School">School</option>
-                    <option value="Cleaning">Cleaning</option>
-                    <option value="Other" >Other</option>
-                    
-                </select><br>
-                <label for="duedate">Enter Due Date</label><br>
-                <input type="date" name="duedate" id="duedate"><br>
-                <button type="submit">ADD TASK</button>
-                <button >Delete Task</button>
-            
-            </form>
 
+            <div id="app-heading">
+                <h1><i class="fa fa-clipboard-list"></i>TO DO LIST</h1>
+            </div>
+
+            
+            <form action="/create-task" method="POST">
+                <div id="desc-input">
+                    <div><label class="ui-label" for="desc" >Description </label></div>
+                    <div><textarea name="desc" rows="2" cols="50" placeholder="What's Your Task?" id="desc" required="true"></textarea></div><br>
+                </div>
+
+                <div id="date-cat-input">
+                    <div>
+                        <label class="ui-label" for="category">Enter Category </label><br>
+                        <select name="category" id="category" required="true">
+                            
+                            <option value="Work" >Work</option>
+                            <option value="School">School</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Other" >Other</option>
+                            
+                        </select>
+                    </div>
+                    <div>
+                        <label class="ui-label" for="duedate">Enter Due Date</label><br>
+                        <input type="date" name="duedate" id="duedate"><br>
+                    </div>
+                </div>
+                
+                
+                
+                <div id="btn-wrapper">
+                
+                <div id="add-btn-wrapper">
+                    <button class="btn" type="submit"><i class="fa fa-plus">&nbsp;</i>add task</button>
+                    
+                </div>
+                <div id="del-btn-wrapper">
+                    <button class="btn" type="submit"><i class="fa fa-trash-alt">&nbsp;</i> delete task</button>
+
+
+                </div>
+                </div>
+            </form>
+            
+
+
+
+            <div>
             <ul>
                 <% for (let i of task_list){ %>
                     <li>
@@ -34,6 +70,7 @@
                     </li>
                 <% } %>
             </ul>
+            </div>
 
         </div>
     </body>
