@@ -10,9 +10,19 @@ app.set('views','./views');
 app.use(express.urlencoded());
 
 app.get('/',function(req,res){
-    res.render('home',{
-        title: "Home"
-    });
+    
+
+    Task.find({},function(err,tasks){
+        if(err){
+            console.log("Error in fetching tasks from db");
+            return;
+        }
+        res.render('home',{
+            title:"To Do App",
+            task_list:tasks
+
+        })
+    })
 });
 
 app.post('/create-task/',function(req,res){

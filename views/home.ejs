@@ -4,22 +4,37 @@
     </head>
 
     <body>
+
+        <div id="app-container">
         
-        <form action="/create-task" method="POST">
-            <label for="desc">Enter Description: </label><br>
-            <textarea name="desc" cols="80" rows="5" placeholder="Enter Your Task" id="desc"></textarea><br>
-            <label for="category">Enter Category </label><br>
-            <select name="category" id="category">
-                <option value="Work">Work</option>
-                <option value="School">School</option>
-                <option value="Cleaning">Cleaning</option>
-                <option value="Other">Other</option>
-                
-            </select><br>
-            <label for="duedate">Enter Due Date</label><br>
-            <input type="date" name="duedate" id="duedate"><br>
-            <button type="submit">ADD TASK</button>
-        
-        </form>
+            <form action="/create-task" method="POST">
+                <label for="desc" >Enter Description: </label><br>
+                <textarea name="desc" cols="80" rows="5" placeholder="Enter Your Task" id="desc" required="true"></textarea><br>
+                <label for="category">Enter Category </label><br>
+                <select name="category" id="category" required="true">
+                    <option value="Work" selected>Work</option>
+                    <option value="School">School</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Other" >Other</option>
+                    
+                </select><br>
+                <label for="duedate">Enter Due Date</label><br>
+                <input type="date" name="duedate" id="duedate"><br>
+                <button type="submit">ADD TASK</button>
+                <button >Delete Task</button>
+            
+            </form>
+
+            <ul>
+                <% for (let i of task_list){ %>
+                    <li>
+                        <div><%= i.description %></div>
+                        <div><%= i.category %></div>
+                        <div><%= i.duedate %></div>
+                    </li>
+                <% } %>
+            </ul>
+
+        </div>
     </body>
 </html>
