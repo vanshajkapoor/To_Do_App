@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" 
         integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" 
         crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
         <link rel="stylesheet" href="/css/home.css">
     </head>
@@ -17,7 +18,7 @@
             </div>
 
             
-            <form action="/create-task" method="POST">
+            <form  id="add-form" action="/create-task" method="POST">
                 <div id="desc-input">
                     <div><label class="ui-label" for="desc" >Description </label></div>
                     <div><textarea name="desc" rows="2" cols="50" placeholder="What's Your Task?" id="desc" required="true"></textarea></div><br>
@@ -60,17 +61,33 @@
 
 
 
-            <div>
-            <ul>
+            
+            <ul id="task-list">
                 <% for (let i of task_list){ %>
-                    <li>
-                        <div><%= i.description %></div>
-                        <div><%= i.category %></div>
-                        <div><%= i.duedate %></div>
-                    </li>
+                    <div class="wrapper">
+                        <li class="card ">
+                            <div class="profile-main">
+                                <h2 class="profile-name"><%= i.category %></h2>
+                                <p class="profile-position"><%= i.description %></p>
+                                <p class="profile-body"><i class="fa fa-calendar-alt"></i><%= i.duedate %></p>
+
+                            </div>
+                            
+                            
+                            
+                        </li>
+                        <div class="check-box" >
+                            <form action="">
+                                <input type="checkbox">
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+                    
                 <% } %>
             </ul>
-            </div>
+            
 
         </div>
     </body>
