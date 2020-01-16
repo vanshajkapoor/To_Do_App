@@ -5,6 +5,7 @@
         integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" 
         crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        
 
         <link rel="stylesheet" href="/css/home.css">
     </head>
@@ -43,20 +44,25 @@
                 </div>
                 
                 
-                
-                <div id="btn-wrapper">
-                
-                <div id="add-btn-wrapper">
-                    <button class="btn" type="submit"><i class="fa fa-plus">&nbsp;</i>add task</button>
+              
+                        <div id="btn-wrapper">
                     
-                </div>
-                <div id="del-btn-wrapper">
-                    <button class="btn" type="submit"><i class="fa fa-trash-alt">&nbsp;</i> delete task</button>
-
-
-                </div>
-                </div>
+                        <button  class="btn" type="submit"><i class="fa fa-plus">&nbsp;</i>add task</button>
+                        
+                 
             </form>
+                
+            <form action="/delete-task/" method="POST">
+
+                    
+                        <button class="btn"  ><i class="fa fa-trash-alt">&nbsp;</i> delete task</button>
+
+                        </div>
+
+
+                    
+                
+            
             
 
 
@@ -69,7 +75,7 @@
                             <div class="profile-main">
                                 <h2 class="profile-name"><%= i.category %></h2>
                                 <p class="profile-position"><%= i.description %></p>
-                                <p class="profile-body"><i class="fa fa-calendar-alt"></i><%= i.duedate %></p>
+                                <p class="profile-body"><i class="fa fa-calendar-alt"></i><%= moment(i.duedate).format(shortDateFormat) %></p>
 
                             </div>
                             
@@ -77,9 +83,9 @@
                             
                         </li>
                         <div class="check-box" >
-                            <form action="">
-                                <input type="checkbox">
-                            </form>
+                            
+                                <input class="regular-checkbox2" type="checkbox" name="Listitem" value="<%= i._id %>" >
+                            
                             
                         </div>
                     </div>
@@ -87,8 +93,15 @@
                     
                 <% } %>
             </ul>
+        </form>
             
 
         </div>
+
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+        <script src="/js/home.js"></script>
     </body>
 </html>
