@@ -1,19 +1,21 @@
 <html>
     <head>
         <title><%= title %></title>
+
+        <!-- font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" 
         integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" 
         crossorigin="anonymous">
+
+        <!-- animate.css -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         
-
+        <!-- my own css -->
         <link rel="stylesheet" href="/css/home.css">
     </head>
 
     <body>
-
         <div id="app-container">
-
             <div id="app-heading">
                 <h1><i class="fa fa-clipboard-list"></i>TO DO LIST</h1>
             </div>
@@ -33,13 +35,14 @@
                             <option value="Work" >Work</option>
                             <option value="School">School</option>
                             <option value="Cleaning">Cleaning</option>
+                            <option value="Development" >Development</option>
                             <option value="Other" >Other</option>
                             
                         </select>
                     </div>
                     <div>
                         <label class="ui-label" for="duedate">Enter Due Date</label><br>
-                        <input type="date" name="duedate" id="duedate"><br>
+                        <input type="date" name="duedate" id="duedate" required><br>
                     </div>
                 </div>
                 
@@ -71,32 +74,84 @@
             <ul id="task-list">
                 <% for (let i of task_list){ %>
                     <div class="wrapper">
-                        <li class="card ">
+                        <li class="card" id='task-tab<%= i._id %>' data-test="<%= i._id %>">
                             <div class="profile-main">
                                 <h2 class="profile-name"><%= i.category %></h2>
                                 <p class="profile-position"><%= i.description %></p>
-                                <p class="profile-body"><i class="fa fa-calendar-alt"></i><%= moment(i.duedate).format(shortDateFormat) %></p>
+                                <p id='para<%= i._id %>' class="profile-body"><i class="fa fa-calendar-alt"></i><%= moment(i.duedate).format(shortDateFormat) %></p>
 
                             </div>
+
+                            
                             
                             
                             
                         </li>
                         <div class="check-box" >
                             
-                                <input class="regular-checkbox2" type="checkbox" name="Listitem" value="<%= i._id %>" >
+                                <input class="regular-checkbox2" id='check<%= i._id %>' data-testc='<%= i._id %>' type="checkbox" name="Listitem" value="<%= i._id %>" >
                             
                             
                         </div>
                     </div>
+
+                    <script>
+            
+                        var check=document.getElementById('check<%= i._id %>').onclick=function(){
+                            if(this.checked){
+                                
+                                document.getElementById('task-tab<%= i._id %>').style.opacity="0.7";
+                                document.getElementById('para<%= i._id %>').style.textDecoration="line-through";
+                            }
+                            else{
+                                document.getElementById('task-tab<%= i._id %>').style.opacity="1";
+                                document.getElementById('para<%= i._id %>').style.textDecoration="none";
+
+                                
+                            }
+                        };
+                        // console.log(check);
+
+                        // check.addEventListener("onClick",function(){
+                        //     // console.log(document.getElementById('task-tab<%= i._id %>'));
+                        //     // document.getElementById('task-tab<%= i._id %>').style.opacity=check?"0.3":"1";
+                            
+                        //     if(check.checked){
+                        //         console.log("hi");
+                        //     }
+                        //     else{
+                        //         console.log("bye");
+                        //     }
+                        // });
+                    
+                    </script>
+
+                    
+                    
+
+
+                    
+
+
+                                
+                    
                     
                     
                 <% } %>
             </ul>
+
+            
+            
         </form>
             
 
         </div>
+
+        
+
+        
+
+        
 
         <script
         src="https://code.jquery.com/jquery-3.4.1.js"
