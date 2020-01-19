@@ -75,10 +75,16 @@ app.post('/create-task/',function(req,res){
 
 });
 
-app.post('/delete-task/',function(req,res){    
+// deleting the task
+
+app.post('/delete-task/',function(req,res){
+    
+    //if nothing is selected
     if(typeof(req.body.Listitem)===undefined){
         req.redirect('back');
     }
+
+    //if one task card selected
 
     if(typeof(req.body.Listitem)==='string'){
         let id=req.body.Listitem;
@@ -90,7 +96,7 @@ app.post('/delete-task/',function(req,res){
         });
 
     }
-
+    //if multiple task acrds selected
     if(typeof(req.body.Listitem)==='object'){
         for(i of req.body.Listitem){
             let id=i;
